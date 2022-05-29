@@ -1,7 +1,8 @@
+const usersController = require("./../controller/userController");
 module.exports =(app) => {
-    const indexController = require('./../controller/indexController')
-
     const usersController = require('./../controller/userController')
-    app.route('/').get(indexController.index)
-    app.route('/table').get(usersController.get)
+
+    app.route('/users').get(usersController.get)
+    app.route('/auth/add').post(usersController.add)
+    app.route('/signin').get(usersController.signin)
 }
