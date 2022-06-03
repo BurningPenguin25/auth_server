@@ -12,7 +12,7 @@ module.exports = {
       family: "Тестов",
       city: "Новосибирск",
       phone: "+71112223457",
-      wodkingPhone: "2002297",
+      workingPhone: "2002297",
       logotype_link: "http://link.com/user/logotype",
       createdAt: new Date(),
       updatedAt: new Date()

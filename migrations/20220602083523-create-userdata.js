@@ -29,7 +29,7 @@ module.exports = {
       phone: {
         type: Sequelize.STRING
       },
-      wodkingPhone: {
+      workingPhone: {
         type: Sequelize.STRING
       },
       logotype_link: {
