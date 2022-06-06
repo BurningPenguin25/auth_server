@@ -6,7 +6,6 @@ module.exports = {
 
     return queryInterface.bulkInsert('userdata', [{
       id: 1,
-      login: 'John',
       firstName: 'demo@demo.com',
       middleName:"Тестович",
       family: "Тестов",
