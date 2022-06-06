@@ -16,7 +16,8 @@ module.exports = {
         type: Sequelize.STRING
       },
       authID: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        foreignKey: true
       },
       createdAt: {
         allowNull: false,
