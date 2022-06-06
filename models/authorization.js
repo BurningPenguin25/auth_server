@@ -11,11 +11,16 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+Authorization.belongsTo(models.userdata, {
+  as: 'userdata',
+  foreignKey: 'userID'
+})
     }
   }
   Authorization.init({
     login: DataTypes.STRING,
-    password: DataTypes.STRING
+    password: DataTypes.STRING,
+    authID: DataTypes.INTENGER
   }, {
     sequelize,
     modelName: 'Authorization',

@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      userdata.hasOne(models.authorization,{
+        as: 'authorization',
+        foreignKey: 'authID'
+      });
     }
   }
   userdata.init({
@@ -22,7 +26,8 @@ module.exports = (sequelize, DataTypes) => {
     city: DataTypes.STRING,
     phone: DataTypes.STRING,
     wodkingPhone: DataTypes.STRING,
-    logotype_link: DataTypes.STRING
+    logotype_link: DataTypes.STRING,
+    userID: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'userdata',
