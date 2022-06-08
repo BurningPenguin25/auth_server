@@ -9,6 +9,9 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      email: {
+        type: Sequelize.STRING
+      },
       firstName: {
         type: Sequelize.STRING
       },
@@ -30,9 +33,9 @@ module.exports = {
       logotype_link: {
         type: Sequelize.STRING
       },
-      userID :{
+      userId: {
+        allowNull: false,
         type: Sequelize.INTEGER,
-        foreignKey: true
       },
       createdAt: {
         allowNull: false,

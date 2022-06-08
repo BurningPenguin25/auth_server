@@ -7,22 +7,20 @@ const bcrypt = require('bcryptjs')
 // user_data - название таблицы
 // id |first_name | second_name | email  | password
 
-
 //получение данных из БД методом .get
 exports.get = (req, res) =>{ // запрос экспорта данных
-    db.query('SELECT `id`, `first_name`, `second_name`, `email`, `password` FROM `user_data`', (error, rows, fields) =>{ // вывод данных методом SELECT
+    db.query('SELECT `id`, `first_name`, `second_name`, `email`, `password` FROM `auth_base`', (error, rows, fields) =>{ // вывод данных методом SELECT
         if(error){ // вывод при ошибке
             response.status(400, error, res)
         } else { // вывод при успешном ответе
             response.status(200, rows, res)
         }
     })
-} // работает
-
+}
 
 // добавление данных в базу данных
 exports.add = (req, res) => {
-    db.query(" SELECT `first_name`, `second_name`, `email`, `password` FROM `user_data` WHERE `email` = '"+ req.body.email +"'", (error, rows, fields) =>{   // добавлено
+    db.query(" SELECT `first_name`, `second_name`, `email`, `password` FROM `auth_base` WHERE `email` = '"+ req.body.email +"'", (error, rows, fields) =>{   // добавлено
         if(error){ // если ошибка при добавлении
             response.status(400, error, res) // выводим сообщение об ошибке
         } else if(typeof rows !== "undefined" && rows.length >0){ // проверка наличия пользователя: если данные есть(rows.length >0) тогда делаем перебор методом map
@@ -41,7 +39,7 @@ exports.add = (req, res) => {
 
             // const name = req.body.name !== '' ? req.body.name : "Не указал" // заполнение таблицы, в случае если не указал имя или что то еще
 
-            const sql = " INSERT INTO `user_data` (`first_name`, `second_name`, `email`, `password`  ) VALUES('" + fname + "', '" + sname + "', '" + email + "', '" + password + "') "; // непосредственно само добавление даннх в базу
+            const sql = " INSERT INTO `auth_base` (`first_name`, `second_name`, `email`, `password`  ) VALUES('" + fname + "', '" + sname + "', '" + email + "', '" + password + "') "; // непосредственно само добавление даннх в базу
             db.query(sql, (error, results)=> {
                 if (error) {
                     response.status(400, error, res)
@@ -55,7 +53,7 @@ exports.add = (req, res) => {
 
 // аутентификация уже зарегистрированного пользователя
 exports.signin = (req, res) =>{
-    db.query(" SELECT `id`, `first_name`, `second_name`, `email`, `password` FROM `user_data` WHERE `email` = '"+ req.body.email +"'", (error, rows, fields) =>{ // запрос и получение  указаныых данных из БД
+    db.query(" SELECT `id`, `first_name`, `second_name`, `email`, `password` FROM `auth_base` WHERE `email` = '"+ req.body.email +"'", (error, rows, fields) =>{ // запрос и получение  указаныых данных из БД
         if (error) {
             response.status(400, error, res)
         }else if(rows.length <= 0 ){ // если строка данных пуста, то выводим сообщение
