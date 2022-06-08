@@ -11,12 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-Authorization.belongsTo(models.userdata, {
-  as: 'userdata',
-  foreignKey: 'userID'
-})
+Authorization.belongsTo(models.userdata)
+      models.userdata.hasOne(Child)
     }
-  }
+  };
   Authorization.init({
     login: DataTypes.STRING,
     password: DataTypes.STRING,
