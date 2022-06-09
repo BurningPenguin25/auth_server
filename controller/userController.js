@@ -7,9 +7,14 @@ const bcrypt = require('bcryptjs')
 // user_data - название таблицы
 // id |first_name | second_name | email  | password
 
-//получение данных из БД методом .get
+
+
+
+
+
+
 exports.get = (req, res) =>{ // запрос экспорта данных
-    db.query('SELECT `id`, `first_name`, `second_name`, `email`, `password` FROM `auth_base`', (error, rows, fields) =>{ // вывод данных методом SELECT
+    db.query('SELECT * FROM `userdata`', (error, rows, fields) =>{ // вывод данных методом SELECT
         if(error){ // вывод при ошибке
             response.status(400, error, res)
         } else { // вывод при успешном ответе
@@ -17,6 +22,25 @@ exports.get = (req, res) =>{ // запрос экспорта данных
         }
     })
 }
+
+
+
+
+
+
+
+
+
+// //получение данных из БД методом .get
+// exports.get = (req, res) =>{ // запрос экспорта данных
+//     db.query('SELECT `id`, `first_name`, `second_name`, `email`, `password` FROM `auth_base`', (error, rows, fields) =>{ // вывод данных методом SELECT
+//         if(error){ // вывод при ошибке
+//             response.status(400, error, res)
+//         } else { // вывод при успешном ответе
+//             response.status(200, rows, res)
+//         }
+//     })
+// }
 
 // добавление данных в базу данных
 exports.add = (req, res) => {

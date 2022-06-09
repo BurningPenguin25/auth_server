@@ -5,14 +5,14 @@ module.exports = {
   async up (queryInterface, Sequelize) {
 
     return queryInterface.bulkInsert('userdata', [{
-      email: 'mail@mail.com',
-      firstName: 'demo@demo.com',
-      middleName:"Тестович",
-      family: "Тестов",
-      city: "Новосибирск",
-      phone: "+71112223457",
-      workingPhone: "2002297",
-      logotype_link: "http://link.com/user/logotype",
+      email: 'mail@mail.comа',
+      firstName: 'demo@demo.comи',
+      middleName:"Тестовичу",
+      family: "Тестовп",
+      city: "Новосибирскк",
+      phone: "+711122234571",
+      workingPhone: "20022971",
+      logotype_link: "http://link.com/user/logotypeу",
       createdAt: new Date(),
       updatedAt: new Date()
     }], {});

@@ -3,24 +3,24 @@
 module.exports = {
 
   async up (queryInterface, Sequelize) {
-    queryInterface.addConstraint('Authorizations', {
-      fields: ['userID'],
+    await queryInterface.addConstraint('userdata', {
+      fields: ['authID'],
       type: "foreign key",
       name: 'FullTable',
       references: {
-        table: 'userdata',
+        table: 'Authorizations',
         field: 'id',
       }
     })
   },
 
   async down (queryInterface, Sequelize) {
-    queryInterface.removeConstraint('Authorizations', {
-      fields: ['userID'],
+    await  queryInterface.removeConstraint('userdata', {
+      fields: ['authID'],
       type: "foreign key",
       name: 'FullTable',
       references: {
-        table: 'userdata',
+        table: 'Authorizations',
         field: 'id',
       }
     })

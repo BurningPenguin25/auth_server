@@ -3,8 +3,8 @@
 module.exports = {
   async up (queryInterface, Sequelize) {
     return queryInterface.bulkInsert('Authorizations', [{
-      login: 'mail@mail.com',
-      password: '1234567890',
+      login: 'mail@mail.comв',
+      password: '12345678901',
       createdAt: new Date(),
       updatedAt: new Date()
     }], {});

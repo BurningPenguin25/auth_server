@@ -1,15 +1,17 @@
 // маршруты и методы запросов данных
 
 
+const usersController = require("./../controller/userController");
 module.exports =(app) => {
     const usersController = require('./../controller/userController')
     const postController = require('./../controller/postcontroller')
     const passport = require('passport')
 
-    app
-        .route('/users')
-        .get(passport.authenticate('jwt', {session: false}), usersController.get)  // подключение и спользование passport
+    // app
+    //     .route('/users')
+    //     .get(passport.authenticate('jwt', {session: false}), usersController.get)  // подключение и спользование passport
 
+    app.route('/users').get(usersController.get)
 
     app
         .route('/auth/add') // путь по которому делается запрос http://localhost:3501/users
